@@ -1,6 +1,6 @@
 [package]
 name = "asphalt"
-version = "0.9.2"
+version = "0.9.3"
 edition = "2021"
 license = "MIT"
 authors = ["Jack T <jack@jackt.space>"]
@@ -20,6 +20,7 @@ cookie = "0.15.2"
 dotenv = "0.15.0"
 env_logger = "0.11.5"
 globset = "0.4.15"
+iilwy_roblox_install = "1.0.1"
 image = "0.25.4"
 inquire = "0.7.5"
 log = "0.4.22"
@@ -32,7 +33,6 @@ reqwest = { version = "0.12.9", default-features = false, features = [
 	"gzip",
 ] }
 resvg = "0.44.0"
-roblox_install = "1.0.0"
 serde = { version = "1.0.214", features = ["derive"] }
 serde-xml-rs = "0.6.0"
 tokio = { version = "1.41.0" }

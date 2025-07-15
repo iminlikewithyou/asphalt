@@ -1,8 +1,8 @@
 use std::{env, path::PathBuf};
 
 use anyhow::Context;
+use iilwy_roblox_install::RobloxStudio;
 use log::{debug, info, warn};
-use roblox_install::RobloxStudio;
 use tokio::fs::remove_dir_all;
 
 use crate::{
