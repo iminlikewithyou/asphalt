@@ -7,3 +7,4 @@ asphalt.lock.toml
 asphalt.toml
 .DS_Store
 .asphalt-debug/
+dist
