@@ -85,8 +85,19 @@ impl SyncBackend for StudioBackend {
             return Ok(SyncResult::None);
         }
 
-        let asset_path = asset_path(state.asset_dir.to_str().unwrap(), path, asset.extension())
+        let mut asset_path = asset_path(state.asset_dir.to_str().unwrap(), path, asset.extension())
             .context("Failed to normalize asset path")?;
+
+        if state.file_name_hash {
+            let parent = asset_path
+                .parent()
+                .map(PathBuf::from)
+                .unwrap_or_else(|| PathBuf::new());
+            let extension = asset.extension();
+            let hash_filename = format!("{}.{}", asset.hash(), extension);
+            asset_path = parent.join(hash_filename);
+        }
+
         write_to_path(&self.sync_path, &asset_path, asset.data())
             .await
             .context("Failed to sync asset to Roblox Studio")?;

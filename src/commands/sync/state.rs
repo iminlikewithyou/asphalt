@@ -44,6 +44,7 @@ pub struct SyncState {
     pub asset_dir: PathBuf,
     pub write_dir: PathBuf,
     pub exclude_assets_matcher: GlobSet,
+    pub file_name_hash: bool,
 
     pub api_key: String,
     pub cookie: Option<String>,
@@ -120,10 +121,13 @@ impl SyncState {
         }
         let exclude_assets_matcher = exclude_assets_matcher_builder.build()?;
 
+        let file_name_hash = config.file_name_hash.unwrap_or(true);
+
         Ok(Self {
             asset_dir,
             write_dir,
             exclude_assets_matcher,
+            file_name_hash,
             api_key,
             creator,
             typescript,

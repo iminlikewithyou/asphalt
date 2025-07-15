@@ -31,6 +31,11 @@ pub async fn init() -> anyhow::Result<()> {
         .with_help_message("The directory to output the generated code to. This should probably be somewhere in your game's source folder.")
         .prompt()
     	.unwrap_or_else(|_| exit(1));
+    let file_name_hash = Confirm::new("Use hashes as output file names during local sync")
+        .with_help_message("Whether to use the asset's hash as its file name when syncing locally to Roblox Studio. This allows Studio to reload new assets instead of cacheing them when updating an asset with the same file name.")
+        .with_default(true)
+        .prompt()
+        .unwrap_or_else(|_| exit(1));
 
     let creator_type = Select::new("Creator Type", vec![CreatorType::User, CreatorType::Group])
         .with_help_message("The Roblox creator to upload the assets under.")
@@ -73,6 +78,7 @@ pub async fn init() -> anyhow::Result<()> {
         asset_dir,
         write_dir,
         exclude_assets: Vec::new(),
+        file_name_hash: Some(file_name_hash),
         creator: Creator { creator_type, id },
         codegen: CodegenConfig {
             output_name,

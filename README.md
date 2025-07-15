@@ -86,6 +86,7 @@ Asphalt is configured with a project file called `asphalt.toml`. It is required 
 ```toml
 asset_dir = "assets/"
 exclude_assets = ["**/*.txt", "**/*.DS_Store"]
+file_name_hash = false
 
 write_dir = "src/shared/"
 
@@ -111,6 +112,8 @@ id = 9670971
     -   The directory of assets to upload to Roblox.
 -	`exclude_assets`: array<string> (optional)
 	-	An array of glob patterns to exclude when processing the assets directory.
+-   `file_name_hash`: boolean (optional)
+    -   Whether to use the asset's hash as its file name when syncing locally to Roblox Studio. This allows Studio to reload new assets instead of caching them when updating an asset with the same file name.
 -   `write_dir`: path
     -   The directory to output the generated code to. This should probably be somewhere in your game's source folder.
 -   `creator`: Creator

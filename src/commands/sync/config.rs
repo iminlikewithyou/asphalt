@@ -63,6 +63,7 @@ pub struct SyncConfig {
     pub asset_dir: String,
     #[serde(default)]
     pub exclude_assets: Vec<String>,
+    pub file_name_hash: Option<bool>,
     pub write_dir: String,
     pub creator: Creator,
     pub codegen: CodegenConfig,
