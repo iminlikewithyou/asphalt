@@ -86,7 +86,7 @@ Asphalt is configured with a project file called `asphalt.toml`. It is required 
 ```toml
 asset_dir = "assets/"
 exclude_assets = ["**/*.txt", "**/*.DS_Store"]
-file_name_hash = false
+file_name_hash = true
 
 write_dir = "src/shared/"
 
