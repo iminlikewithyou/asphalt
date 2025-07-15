@@ -21,7 +21,7 @@ async fn main() -> anyhow::Result<()> {
 
     env_logger::Builder::new()
         .filter_level(LevelFilter::Info)
-        .filter_module("asphalt", args.verbose.log_level_filter())
+        .filter_module("iilwy_asphalt", args.verbose.log_level_filter())
         .format_timestamp(None)
         .format_module_path(false)
         .init();
